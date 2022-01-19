@@ -1,29 +1,19 @@
-// import Link from "./Components/Link/Link";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import ErrorPage from "./Pages/ErrorPage";
+import "./Global/reset.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Leo!</p>
+    <div className="app">
 
-        <Router>
+    <Header/>
 
-          <Link to="/"> Home Link</Link>
-          <Link to="/about"> About Link</Link>
+    {/* Some content that stays in all pages */}
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
 
-        </Router>
-      </header>
+    {/* <Footer/> */}
+
     </div>
   );
 }

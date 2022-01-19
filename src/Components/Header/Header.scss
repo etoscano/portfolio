@@ -1,0 +1,40 @@
+
+
+.header{
+
+    background: paleturquoise;
+
+}
+
+
+.header__nav{
+
+
+
+}
+
+.header__list{
+    display: flex;
+    height: 60px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header__item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+}
+
+.header__link{
+    padding: 20px;
+    text-align: center;
+}
+
+.header__title{
+    font-size: 1.25rem;
+}
