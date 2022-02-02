@@ -11,16 +11,24 @@
     height: 200px;
 }
 
+// REMOVE SCROLLBAR
+body::-webkit-scrollbar {
+    display: none;
+}
+body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
 
 .section
 {
-    background: #574a5e;
+    background: #ffffff;
     display: flex;
     align-items: center;
     height: 100vh;
     position: relative;
     font-family: 'Cabin', sans-serif;
-    color: #ffeded;
+    color: #0e0d0d;
     text-transform: uppercase;
     font-size: 7vmin;
     padding-left: 10%;
