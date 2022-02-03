@@ -89,5 +89,8 @@ export default class World
 
         if(this.lime)
             this.lime.update()
+
+        if(this.cards)
+            this.cards.update()
     }
 }

@@ -17,6 +17,7 @@ export default class Camera
 
         this.setInstance()
         this.setControls()
+        // this.setAnimation()
     }
 
     setInstance()
@@ -62,27 +63,23 @@ export default class Camera
 
     cameraProjects()
     {
-        this.controls.autoRotate = false
-        var cameraHeight = 0.3
-        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0 , y: 1, z: 9}) 
-        // gsap.to(this.controls.target, { duration: 5, delay: 0.3, x: 0, y: cameraHeight + 0.01, z: 0}) 
+        // this.controls.autoRotate = true
+        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0 , y: 2.5, z: 9}) 
         this.experience.world.restoreFog()  // TODO remove fog everywhere
         this.controls.enableZoom = true  
     }
 
     cameraUp()
     {
-        this.controls.autoRotate = true
-        // gsap.to(this.controls.target, { duration: 5, delay: 0.3, x: 0, y: 0, z: 0}) 
-        gsap.to(this.instance.position, { duration: 5, delay: 0.3, y : 20})   
+        // this.controls.autoRotate = true
+        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0, y : 20, z: 0})   
         this.experience.world.removeFog()    
         this.controls.enableZoom = false
     }
 
     cameraDown()
     {
-        this.controls.autoRotate = true
-        // gsap.to(this.controls.target, { duration: 5, delay: 0.3, x: 0, y: 0, z: 0}) 
+        // this.controls.autoRotate = true
         gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0, y : 0.6, z: 6 })   
         this.experience.world.restoreFog()    
         this.controls.enableZoom = false
@@ -93,7 +90,8 @@ export default class Camera
         this.controls = new OrbitControls(this.instance, this.canvas)
         this.controls.enableDamping = true
         this.controls.enableZoom = false
-        this.controls.autoRotate = true
+        this.controls.enabled = false
+        this.controls.autoRotate = false
         this.controls.autoRotateSpeed = 0.2
 
         this.controls.target.set(0,0.5,0)
@@ -113,8 +111,32 @@ export default class Camera
         this.instance.updateProjectionMatrix()
     }
 
+    // setAnimation(){
+
+    //     this.cursor = {}
+    //     this.cursor.x = 0
+    //     this.cursor.y = 0
+        
+    //     window.addEventListener('mousemove', (event) =>
+    //     {
+    //         this.cursor.x = event.clientX / this.sizes.width - 0.5
+    //         this.cursor.y = event.clientY / this.sizes.height - 0.5
+    //     })
+    // }
+
     update()
     {
         this.controls.update()
+
+        // Animate camera
+        this.parallaxX = this.experience.mouse.x * 0.5
+        this.parallaxY = - this.experience.mouse.y * 0.5
+        this.instance.position.x += 0.01 * (this.parallaxX)
+        this.instance.position.y += 0.1 * (this.parallaxY)
+        this.instance.position.z += 0.01 * (this.parallaxX)
+
+        // console.log(this.cursor.x)
+
     }
+
 }

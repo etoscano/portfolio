@@ -56,7 +56,7 @@ export default class Floor
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.rotation.x = - Math.PI * 0.5
         this.mesh.receiveShadow = true
-        this.mesh.scale.set(0,0,1)
+        this.mesh.scale.set(1,1,1)
         this.scene.add(this.mesh)
     }
 

@@ -46,5 +46,76 @@ export default [
         name: 'waterFragmentShader',
         type: 'shader',
         path: 'shaders/water/fragment.glsl'
+    },
+    {
+        name: 'cardVertexShader',
+        type: 'shader',
+        path: 'shaders/card/vertex.glsl'
+    },
+    {
+        name: 'cardFragmentShader',
+        type: 'shader',
+        path: 'shaders/card/fragment.glsl'
+    },
+    {
+        name: 'projectTexture_1',
+        type: 'texture',
+        path: 'textures/project/p_1.jpeg'
+    },
+    {
+        name: 'projectTexture_2',
+        type: 'texture',
+        path: 'textures/project/p_2.jpeg'
+    },
+    {
+        name: 'projectTexture_3',
+        type: 'texture',
+        path: 'textures/project/p_3.jpeg'
+    },
+    {
+        name: 'projectTexture_4',
+        type: 'texture',
+        path: 'textures/project/p_4.jpeg'
+    },
+    {
+        name: 'projectTexture_5',
+        type: 'texture',
+        path: 'textures/project/p_5.jpeg'
+    },
+    {
+        name: 'projectTexture_6',
+        type: 'texture',
+        path: 'textures/project/p_6.jpeg'
+    },
+    {
+        name: 'projectTexture_7',
+        type: 'texture',
+        path: 'textures/project/p_7.jpeg'
+    },
+    {
+        name: 'projectTexture_8',
+        type: 'texture',
+        path: 'textures/project/p_8.jpeg'
+    },
+    {
+        name: 'projectTexture_9',
+        type: 'texture',
+        path: 'textures/project/p_9.jpeg'
+    },
+    {
+        name: 'projectTexture_10',
+        type: 'texture',
+        path: 'textures/project/p_10.jpeg'
+    },
+    {
+        name: 'projectTexture_11',
+        type: 'texture',
+        path: 'textures/project/p_11.jpeg'
+    },
+    {
+        name: 'mask',
+        type: 'texture',
+        path: 'textures/project/mask.jpeg'
     }
+
 ]

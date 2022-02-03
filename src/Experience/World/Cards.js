@@ -2,9 +2,6 @@ import * as THREE from 'three'
 import Experience from '../Experience.js'
 import gsap from 'gsap'
 
-// import waterVertexShader from './shaders/water/vertex.glsl'
-// import waterFragmentShader from './shaders/water/fragment.glsl'
-
 export default class Cards
 {
     constructor()
@@ -20,6 +17,7 @@ export default class Cards
         this.setTextures()
         this.setMaterial()
         this.setMesh()
+        this.raycaster()
     }
 
     setGeometry()
@@ -45,23 +43,40 @@ export default class Cards
         this.textures.normal.wrapT = THREE.RepeatWrapping
     }
 
-    setMaterial()
+    // setMaterial()
+    // {
+    //     this.material = new THREE.MeshStandardMaterial({
+    //         map: this.textures.color,
+    //         normalMap: this.textures.normal,
+    //         side: THREE.DoubleSide
+    //     })
+    // }
+
+
+    setMaterial(i)
     {
-        this.material = new THREE.MeshStandardMaterial({
-            map: this.textures.color,
-            normalMap: this.textures.normal,
-            side: THREE.DoubleSide
-        })
+        // Material
+        return new THREE.ShaderMaterial({
+            side: THREE.DoubleSide,
+            transparent: true,
+            vertexShader: this.resources.items.cardVertexShader,
+            fragmentShader: this.resources.items.cardFragmentShader,
+            uniforms:
+            {
+                uTexture: {value: this.resources.items['projectTexture_' + i]},
+                uMask: {value: this.resources.items.mask}
+            }
+        });
     }
 
     setMesh()
     {
         var num = 11
-        var radius = 4
+        var radius = 3.5
         this.cards = new THREE.Group()
         
         for(let i = 0; i< num; i++){
-            var mesh = new THREE.Mesh(this.geometry, this.material)
+            var mesh = new THREE.Mesh(this.geometry, this.setMaterial(i+1))
             mesh.receiveShadow = true
             mesh.position.x = Math.sin(Math.PI * 2 / num * i ) * radius
             mesh.position.z = Math.cos(Math.PI * 2 / num * i ) * radius
@@ -69,7 +84,7 @@ export default class Cards
             mesh.lookAt(new THREE.Vector3(0,0,0))
             mesh.position.y = this.width
             
-            mesh.scale.set(0,0,0)
+            mesh.scale.set(1,1,1)
             this.cards.add(mesh)
         }
         this.scene.add(this.cards)
@@ -87,6 +102,45 @@ export default class Cards
         {
             gsap.to(child.scale, { duration: 2, delay: 0.6, x: 1, y: 1, z: 1})
         })
+    }
+
+    raycaster(){
+        /**
+         * Raycaster
+         */
+        this.raycaster = new THREE.Raycaster()
+        this.currentIntersect = null
+        const rayOrigin = new THREE.Vector3(- 3, 0, 0)
+        const rayDirection = new THREE.Vector3(10, 0, 0)
+        rayDirection.normalize()
+    }
+
+    update(){
+        // Cast a ray from the mouse and handle events
+        this.raycaster.setFromCamera(this.experience.mouse, this.experience.camera.instance)
+
+        const intersects = this.raycaster.intersectObjects(this.cards)
+        console.log(this.cards)
+        
+        if(intersects.length)
+        {
+            if(!this.currentIntersect)
+            {
+                console.log('mouse enter')
+            }
+
+            this.currentIntersect = intersects[0]
+        }
+        else
+        {
+            if(this.currentIntersect)
+            {
+                console.log('mouse leave')
+            }
+            
+            this.currentIntersect = null
+        }
+
     }
 
 }

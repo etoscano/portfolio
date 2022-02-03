@@ -54,14 +54,28 @@ export default class Experience
             this.update()
         })
 
+        this.mouse = {
+            x: 0,
+            y: 0
+        }
+        this.mouseListener()
+
+    }
+
+    mouseListener(){
+        window.addEventListener('mousemove', (event) =>
+        {
+            this.mouse.x = event.clientX / this.sizes.width * 2 - 1
+            this.mouse.y = - (event.clientY / this.sizes.height) * 2 + 1
+        })
     }
 
     cameraProjects()
     {
         this.camera.cameraProjects()
         // this.showSection.showProjects()
-        this.world.showFloor()
-        this.world.showCards()
+        // this.world.showFloor()
+        // this.world.showCards()
         this.world.moveToCenter()
     }
 
@@ -69,8 +83,8 @@ export default class Experience
     {
         this.camera.cameraUp()
         // this.showSection.showContacts()
-        this.world.hideFloor()
-        this.world.hideCards()
+        // this.world.hideFloor()
+        // this.world.hideCards()
         this.world.moveToCenter(true)
     }
 
@@ -78,8 +92,8 @@ export default class Experience
     {
         this.camera.cameraDown()
         // this.showSection.showHome()
-        this.world.hideFloor()
-        this.world.hideCards()
+        // this.world.hideFloor()
+        // this.world.hideCards()
         this.world.putInCircle()
     }
 
