@@ -7,8 +7,7 @@ import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
-import PageManager from './Utils/PageManager.js'
-import ShowSection from './Utils/ShowSection.js'
+// import ShowSection from './Utils/ShowSection.js'
 
 import sources from './sources.js'
 
@@ -23,6 +22,7 @@ export default class Experience
         {
             return instance
         }
+        console.log("Experience");
         instance = this
         
         // Global access
@@ -40,8 +40,7 @@ export default class Experience
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
-        this.pageManager = new PageManager()
-        this.showSection = new ShowSection()
+        // this.showSection = new ShowSection()
 
         // Resize event
         this.sizes.on('resize', () =>
@@ -55,26 +54,12 @@ export default class Experience
             this.update()
         })
 
-        this.pageManager.on('cameraUp', () =>
-        {
-            this.cameraUp()
-        })
-        
-        this.pageManager.on('cameraDown', () =>
-        {
-            this.cameraDown()
-        })    
-
-        this.pageManager.on('cameraProjects', () =>
-        {
-            this.cameraProjects()
-        })
     }
 
     cameraProjects()
     {
         this.camera.cameraProjects()
-        this.showSection.showProjects()
+        // this.showSection.showProjects()
         this.world.showFloor()
         this.world.showCards()
         this.world.moveToCenter()
@@ -83,7 +68,7 @@ export default class Experience
     cameraUp()
     {
         this.camera.cameraUp()
-        this.showSection.showContacts()
+        // this.showSection.showContacts()
         this.world.hideFloor()
         this.world.hideCards()
         this.world.moveToCenter(true)
@@ -92,7 +77,7 @@ export default class Experience
     cameraDown()
     {
         this.camera.cameraDown()
-        this.showSection.showHome()
+        // this.showSection.showHome()
         this.world.hideFloor()
         this.world.hideCards()
         this.world.putInCircle()

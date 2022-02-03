@@ -37,14 +37,14 @@ export default [
         type: 'gltfModel',
         path: 'models/Lime/food_lime_01_2k.gltf'
     },
-    // {
-    //     name: 'waterVertexShader',
-    //     type: 'shader',
-    //     path: 'shaders/water/vertex.glsl'
-    // },
-    // {
-    //     name: 'waterFragmentShader',
-    //     type: 'shader',
-    //     path: 'shaders/water/fragment.glsl'
-    // }
+    {
+        name: 'waterVertexShader',
+        type: 'shader',
+        path: 'shaders/water/vertex.glsl'
+    },
+    {
+        name: 'waterFragmentShader',
+        type: 'shader',
+        path: 'shaders/water/fragment.glsl'
+    }
 ]

@@ -64,7 +64,7 @@ export default class Camera
     {
         this.controls.autoRotate = false
         var cameraHeight = 0.3
-        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0 , y: -6, z: 1}) 
+        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0 , y: 1, z: 9}) 
         // gsap.to(this.controls.target, { duration: 5, delay: 0.3, x: 0, y: cameraHeight + 0.01, z: 0}) 
         this.experience.world.restoreFog()  // TODO remove fog everywhere
         this.controls.enableZoom = true  

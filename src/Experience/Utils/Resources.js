@@ -37,7 +37,7 @@ export default class Resources extends EventEmitter
                 this.loaders.gltfLoader.load(
                     source.path,
                     (file) =>
-                    {   console.log(file)
+                    {   
                         this.sourceLoaded(source, file)
                     }
                 )
