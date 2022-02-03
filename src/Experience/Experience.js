@@ -40,7 +40,7 @@ export default class Experience
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
-        // this.pageManager = new PageManager()
+        this.pageManager = new PageManager()
         this.showSection = new ShowSection()
 
         // Resize event
@@ -55,20 +55,20 @@ export default class Experience
             this.update()
         })
 
-        // this.pageManager.on('cameraUp', () =>
-        // {
-        //     this.cameraUp()
-        // })
+        this.pageManager.on('cameraUp', () =>
+        {
+            this.cameraUp()
+        })
         
-        // this.pageManager.on('cameraDown', () =>
-        // {
-        //     this.cameraDown()
-        // })    
+        this.pageManager.on('cameraDown', () =>
+        {
+            this.cameraDown()
+        })    
 
-        // this.pageManager.on('cameraProjects', () =>
-        // {
-        //     this.cameraProjects()
-        // })
+        this.pageManager.on('cameraProjects', () =>
+        {
+            this.cameraProjects()
+        })
     }
 
     cameraProjects()

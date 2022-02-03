@@ -21,11 +21,11 @@ export default class World
         {
             // Setup
             // this.sea = new Sea()
-            // this.people = new People()
-            // this.cards = new Cards()
+            this.people = new People()
+            this.cards = new Cards()
             // this.door = new Door()
-            // this.floor = new Floor()
-            this.lime = new Lime()
+            this.floor = new Floor()
+            // this.lime = new Lime()
             // this.fox = new Fox()
             this.environment = new Environment()
         })

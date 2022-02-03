@@ -27,11 +27,11 @@ export default [
         type: 'gltfModel',
         path: 'models/Fox/glTF/Fox.gltf'
     },    
-    // {
-    //     name: 'peopleModel',
-    //     type: 'gltfModel',
-    //     path: 'models/People/scene.gltf'
-    // },
+    {
+        name: 'peopleModel',
+        type: 'gltfModel',
+        path: 'models/People/scene.gltf'
+    },
     {
         name: 'limeModel',
         type: 'gltfModel',

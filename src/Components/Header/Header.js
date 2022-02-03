@@ -3,13 +3,14 @@ import Home from "../../Pages/Home";
 import About from "../../Pages/About";
 import Projects from "../../Pages/Projects";
 import ErrorPage from "../../Pages/ErrorPage";
+import PageManager from "../../Experience/Utils/PageManager";
 
 import { useState } from 'react';
 
 function Header() {
     const names = ['Home', 'About', 'Projects'];
     const [active, setActive] = useState(names[0]);
-
+  // get prop experience
 
     function setSelected(name) {
         setActive(name);
@@ -21,7 +22,7 @@ function Header() {
 
   return (
     <Router>
-      <header className="header">
+      <header className="header" id="header">
         {/* Links */}
         <nav className="header__nav">
             <ul className="header__list">
