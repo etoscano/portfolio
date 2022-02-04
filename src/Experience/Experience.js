@@ -2,11 +2,13 @@ import * as THREE from 'three'
 
 import Debug from './Utils/Debug.js'
 import Sizes from './Utils/Sizes.js'
+import Mouse from './Utils/Mouse.js'
 import Time from './Utils/Time.js'
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
+import Raycaster from './Raycaster.js'
 // import ShowSection from './Utils/ShowSection.js'
 
 import sources from './sources.js'
@@ -34,12 +36,14 @@ export default class Experience
         // Setup
         this.debug = new Debug()
         this.sizes = new Sizes()
+        this.mouse = new Mouse(this.sizes)
         this.time = new Time()
         this.scene = new THREE.Scene()
         this.resources = new Resources(sources)
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
+        this.raycaster = new Raycaster()
         // this.showSection = new ShowSection()
 
         // Resize event
@@ -48,27 +52,22 @@ export default class Experience
             this.resize()
         })
 
+        // // Mousemove event
+        // this.mouse.on('mousemove', () =>
+        // {
+        //     this.mousemove()
+        // })        
+
         // Time tick event
         this.time.on('tick', () =>
         {
             this.update()
         })
 
-        this.mouse = {
-            x: 0,
-            y: 0
-        }
-        this.mouseListener()
 
     }
 
-    mouseListener(){
-        window.addEventListener('mousemove', (event) =>
-        {
-            this.mouse.x = event.clientX / this.sizes.width * 2 - 1
-            this.mouse.y = - (event.clientY / this.sizes.height) * 2 + 1
-        })
-    }
+
 
     cameraProjects()
     {
@@ -103,11 +102,17 @@ export default class Experience
         this.renderer.resize()
     }
 
+    // mousemove()
+    // {
+    //     this.raycaster.update()
+    // }
+
     update()
     {
         this.camera.update()
         this.world.update()
         this.renderer.update()
+        this.raycaster.update()
     }
 
     destroy()

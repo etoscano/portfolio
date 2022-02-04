@@ -129,8 +129,8 @@ export default class Camera
         this.controls.update()
 
         // Animate camera
-        this.parallaxX = this.experience.mouse.x * 0.5
-        this.parallaxY = - this.experience.mouse.y * 0.5
+        this.parallaxX = this.experience.mouse.instance.x * 0.5
+        this.parallaxY = - this.experience.mouse.instance.y * 0.5
         this.instance.position.x += 0.01 * (this.parallaxX)
         this.instance.position.y += 0.1 * (this.parallaxY)
         this.instance.position.z += 0.01 * (this.parallaxX)

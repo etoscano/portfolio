@@ -17,7 +17,7 @@ export default class Cards
         this.setTextures()
         this.setMaterial()
         this.setMesh()
-        this.raycaster()
+
     }
 
     setGeometry()
@@ -42,15 +42,6 @@ export default class Cards
         this.textures.normal.wrapS = THREE.RepeatWrapping
         this.textures.normal.wrapT = THREE.RepeatWrapping
     }
-
-    // setMaterial()
-    // {
-    //     this.material = new THREE.MeshStandardMaterial({
-    //         map: this.textures.color,
-    //         normalMap: this.textures.normal,
-    //         side: THREE.DoubleSide
-    //     })
-    // }
 
 
     setMaterial(i)
@@ -103,43 +94,8 @@ export default class Cards
             gsap.to(child.scale, { duration: 2, delay: 0.6, x: 1, y: 1, z: 1})
         })
     }
-
-    raycaster(){
-        /**
-         * Raycaster
-         */
-        this.raycaster = new THREE.Raycaster()
-        this.currentIntersect = null
-        const rayOrigin = new THREE.Vector3(- 3, 0, 0)
-        const rayDirection = new THREE.Vector3(10, 0, 0)
-        rayDirection.normalize()
-    }
-
+    
     update(){
-        // Cast a ray from the mouse and handle events
-        this.raycaster.setFromCamera(this.experience.mouse, this.experience.camera.instance)
-
-        const intersects = this.raycaster.intersectObjects(this.cards)
-        console.log(this.cards)
-        
-        if(intersects.length)
-        {
-            if(!this.currentIntersect)
-            {
-                console.log('mouse enter')
-            }
-
-            this.currentIntersect = intersects[0]
-        }
-        else
-        {
-            if(this.currentIntersect)
-            {
-                console.log('mouse leave')
-            }
-            
-            this.currentIntersect = null
-        }
 
     }
 
