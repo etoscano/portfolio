@@ -23,7 +23,7 @@ export default class Camera
     setInstance()
     {
         this.instance = new THREE.PerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 40)
-        this.instance.position.set(0 , 0.6, 6)
+        this.instance.position.set(0 , 0.5, 3)
 
         if(this.debug.active)
         {
@@ -72,7 +72,8 @@ export default class Camera
     cameraUp()
     {
         // this.controls.autoRotate = true
-        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: 0, y : 20, z: 0})   
+        // this.controls.target.set(0,0,100)
+        gsap.to(this.instance.position, { duration: 5, delay: 0.3, x: -1, y : 0.5, z: -1})   
         this.experience.world.removeFog()    
         this.controls.enableZoom = false
     }
@@ -94,7 +95,7 @@ export default class Camera
         this.controls.autoRotate = false
         this.controls.autoRotateSpeed = 0.2
 
-        this.controls.target.set(0,0.5,0)
+        this.controls.target.set(0,0.5,-10)
 
         if(this.debug.active)
         {
@@ -132,7 +133,7 @@ export default class Camera
         this.parallaxX = this.experience.mouse.instance.x * 0.5
         this.parallaxY = - this.experience.mouse.instance.y * 0.5
         this.instance.position.x += 0.01 * (this.parallaxX)
-        this.instance.position.y += 0.1 * (this.parallaxY)
+        this.instance.position.y += 0.01 * (this.parallaxY)
         this.instance.position.z += 0.01 * (this.parallaxX)
 
         // console.log(this.cursor.x)

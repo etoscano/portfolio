@@ -58,6 +58,36 @@ export default [
         path: 'shaders/card/fragment.glsl'
     },
     {
+        name: 'buildingVertexShader',
+        type: 'shader',
+        path: 'shaders/building/vertex.glsl'
+    },
+    {
+        name: 'buildingFragmentShader',
+        type: 'shader',
+        path: 'shaders/building/fragment.glsl'
+    },    
+    {
+        name: 'b_1',
+        type: 'texture',
+        path: 'textures/buildings/b_1.jpeg'
+    },
+    {
+        name: 'b_2',
+        type: 'texture',
+        path: 'textures/buildings/b_2.jpeg'
+    },
+    {
+        name: 'b_3',
+        type: 'texture',
+        path: 'textures/buildings/b_3.jpeg'
+    },
+    {
+        name: 'b_4',
+        type: 'texture',
+        path: 'textures/buildings/b_4.jpeg'
+    },
+    {
         name: 'projectTexture_1',
         type: 'texture',
         path: 'textures/project/p_1.jpeg'

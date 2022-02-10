@@ -17,6 +17,8 @@ export default class Raycaster
         this.dir = new THREE.Vector3( this.mouse.x, this.mouse.y, 0 );
         this.origin = new THREE.Vector3( this.camera.instance.position.x, this.camera.instance.position.y, this.camera.instance.position.z );
         this.instance = new THREE.Raycaster(this.dir, this.origin,0, 300 )
+
+        this.currentIntersect = null
     }
 
     update(){
@@ -26,19 +28,38 @@ export default class Raycaster
         // const objectsToTest = [object1, object2, object3]
         this.intersects = this.instance.intersectObjects(this.scene.children)
         
-        for(const intersect of this.intersects)
+
+        if(this.intersects.length)
         {
-            // intersect.object.material.color.set('#0000ff')
-            console.log("intersect")
-        }
-    
-        for(const object of this.scene.children)
-        {
-            if(!this.intersects.find(intersect => intersect.object === object))
+            if(!this.currentIntersect)
             {
-                // object.material.color.set('#ff0000')
+                console.log('mouse enter')
             }
+
+            this.currentIntersect = this.intersects[0]
         }
+        else
+        {
+            if(this.currentIntersect)
+            {
+                console.log('mouse leave')
+            }
+            
+            this.currentIntersect = null
+        }
+        // for(const intersect of this.intersects)
+        // {
+        //     // intersect.object.material.color.set('#0000ff')
+        //     console.log("intersect")
+        // }
+    
+        // for(const object of this.scene.children)
+        // {
+        //     if(!this.intersects.find(intersect => intersect.object === object))
+        //     {
+        //         // object.material.color.set('#ff0000')
+        //     }
+        // }
     }
 
 }

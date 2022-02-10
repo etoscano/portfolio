@@ -43,7 +43,7 @@ export default class Experience
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
-        this.raycaster = new Raycaster()
+        // this.raycaster = new Raycaster()
         // this.showSection = new ShowSection()
 
         // Resize event
@@ -112,7 +112,7 @@ export default class Experience
         this.camera.update()
         this.world.update()
         this.renderer.update()
-        this.raycaster.update()
+        // this.raycaster.update()
     }
 
     destroy()

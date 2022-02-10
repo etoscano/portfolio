@@ -6,6 +6,7 @@ import Sea from './Sea.js'
 import People from './People.js'
 import Door from './Door.js'
 import Cards from './Cards.js'
+import Buildings from './Buildings.js'
 import Lime from './Lime.js'
 
 export default class World
@@ -20,9 +21,10 @@ export default class World
         this.resources.on('ready', () =>
         {
             // Setup
-            // this.sea = new Sea()
+            this.sea = new Sea()
             // this.people = new People()
-            this.cards = new Cards()
+            // this.cards = new Cards()
+            this.Buildings = new Buildings()
             // this.door = new Door()
             // this.floor = new Floor()
             // this.lime = new Lime()

@@ -16,8 +16,8 @@ export default class Sea
         this.debugObject = {
         }
         // Colors
-        this.debugObject.depthColor = '#186691'
-        this.debugObject.surfaceColor = '#9bd8ff'
+        this.debugObject.depthColor = '#916118'
+        this.debugObject.surfaceColor = '#ffd79b'
 
         if(this.debug.active)
         {
@@ -38,7 +38,7 @@ export default class Sea
 
     setGeometry()
     {
-        this.geometry = new THREE.PlaneGeometry(2, 3, 512, 512)
+        this.geometry = new THREE.PlaneGeometry(15, 15, 512, 512)
     }
 
     // setTextures()
