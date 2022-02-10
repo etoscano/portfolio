@@ -20,7 +20,7 @@ function Header(props) {
              experience.cameraProjects();
               break;
           case 'About':
-              experience.cameraUp();
+              experience.cameraAbout();
               break;
           case 'Home':
              experience.cameraDown();

@@ -78,9 +78,9 @@ export default class Experience
         this.world.moveToCenter()
     }
 
-    cameraUp()
+    cameraAbout()
     {
-        this.camera.cameraUp()
+        this.camera.cameraAbout()
         // this.showSection.showContacts()
         // this.world.hideFloor()
         // this.world.hideCards()
