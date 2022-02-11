@@ -37,7 +37,7 @@ export default class Camera
 
         this.positions = {
             about: {
-                x: 0,
+                x: -0.5,
                 y: 0.5,
                 z: -1
             },
@@ -45,6 +45,8 @@ export default class Camera
                 x: 0,
                 y: 0.5,
                 z: 3,
+                minX: 0.8,
+                maxX: 0.8,
                 minY: 0.3,
                 maxY: 0.8
             }
@@ -123,7 +125,11 @@ export default class Camera
         // Animate camera
         this.parallaxX = this.experience.mouse.instance.x * 0.5
         this.parallaxY = - this.experience.mouse.instance.y * 0.5
-        this.instance.position.x += 0.01 * (this.parallaxX)
+        this.instance.position.x = THREE.MathUtils.clamp(
+            this.instance.position.x + 0.01 * (this.parallaxX),
+            this.positions.home.x - this.positions.home.minX,
+            this.positions.home.x + this.positions.home.maxX
+        ) 
         // console.log(THREE.MathUtils.clamp(0.01 * (this.parallaxY), this.positions.home.y - this.positions.home.minY, this.positions.home.y + this.positions.home.maxY))
         this.instance.position.y = THREE.MathUtils.clamp(
             this.instance.position.y + 0.01 * (this.parallaxY),
