@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useRef, useMemo } from "react"
 import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber"
 import { Content } from "./Components/Content"
 import { Startup } from "./Components/Startup"
+import { Clouds } from "./Components/Clouds"
 import Diamonds from "./diamonds/Diamonds"
 import state from "./Database"
 
@@ -16,6 +17,10 @@ function App() {
       <>
         <Canvas className="canvas" concurrent pixelRatio={1} orthographic camera={{ zoom: state.zoom, position: [0, 0, 500] }}>
           <Suspense fallback={<Dom center className="loading" children="Loading..." />}>
+
+          <Clouds  args={[15, 15, 512, 512]} frustumCulled={false} />
+ 
+
             <Content />
             <Diamonds />
             <Startup />
