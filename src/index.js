@@ -3,12 +3,18 @@ import React, { Suspense, useEffect, useRef, useMemo } from "react"
 import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber"
 import { TextureLoader, LinearFilter } from "three"
 import lerp from "lerp"
-import { Text, MultilineText } from "./components/Text"
+import { Text, MultilineText } from "./Components/Text"
 import Diamonds from "./diamonds/Diamonds"
-import Plane from "./components/Plane"
+import Plane from "./Components/Plane"
 import { Block, useBlock } from "./blocks"
-import state from "./store"
+import state from "./database"
+
 import "./styles.css"
+
+import Header from "./Components/Header/Header"
+import "./Global/reset.scss"
+import "./Global/variables.scss"
+import "./Global/main.scss"
 
 function Startup() {
   const ref = useRef()
@@ -103,27 +109,7 @@ function App() {
         ))}
       </div>
       <div className="frame">
-        <h1 className="frame__title">Scroll, Refraction and Shader Effects</h1>
-        <div className="frame__links">
-          <a className="frame__link" href="http://tympanus.net/Tutorials/PhysicsMenu/">
-            Previous demo
-          </a>
-          <a className="frame__link" href="https://tympanus.net/codrops/?p=45441">
-            Article
-          </a>
-          <a className="frame__link" href="https://github.com/drcmda/the-substance">
-            GitHub
-          </a>
-        </div>
-        <div className="frame__nav">
-          <a className="frame__link" href="#00" children="intro" />
-          <a className="frame__link" href="#01" children="01" />
-          <a className="frame__link" href="#02" children="02" />
-          <a className="frame__link" href="#03" children="03" />
-          <a className="frame__link" href="#04" children="04" />
-          <a className="frame__link" href="#05" children="05" />
-          <a className="frame__link" href="#07" children="06" />
-        </div>
+        <Header />
       </div>
     </>
   )

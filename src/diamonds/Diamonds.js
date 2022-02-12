@@ -6,7 +6,7 @@ import lerp from "lerp"
 import BackfaceMaterial from "./BackfaceMaterial"
 import RefractionMaterial from "./RefractionMaterial"
 import { useBlock } from "../blocks"
-import state from "../store"
+import state from "../database"
 
 const dummy = new Object3D()
 export default function Diamonds() {
