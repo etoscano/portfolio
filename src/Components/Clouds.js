@@ -1,22 +1,31 @@
 import React, { forwardRef, useRef } from "react"
-import { useFrame } from "react-three-fiber"
+import * as THREE from 'three'
+import { useFrame, useRender } from "react-three-fiber"
 import lerp from "lerp"
-import "./CustomMaterial"
 import { useBlock } from "../blocks"
 import state from "../Database"
 import "./CloudsShaderMaterial.js"
+import { Clock } from "three"
 
 const Clouds = forwardRef(({ color = "white", shift = 1, opacity = 1, args, map, ...props }, ref) => {
   const material = useRef()
+  useFrame((state) => {
+    material.current.uniforms.uTime.value = state.clock.getElapsedTime() * 0.001;
+    console.log(material.current.uniforms.uTime.value)
+  })
   return (
     <mesh ref={ref} {...props}>
       <planeBufferGeometry attach="geometry" args={args} />
       {/* <customMaterial ref={material} attach="material" color={color} map={map} transparent opacity={opacity} /> */}
-      <cloudsShaderMaterial attach="material" />
+      <cloudsShaderMaterial attach="material" ref={material} />
    
     </mesh>
   )
 })
+
+
+
+
 
 export { Clouds }
 
