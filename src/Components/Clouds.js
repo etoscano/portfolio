@@ -9,9 +9,8 @@ import { Clock } from "three"
 
 const Clouds = forwardRef(({ color = "white", shift = 1, opacity = 1, args, map, ...props }, ref) => {
   const material = useRef()
-  useFrame((state) => {
-    material.current.uniforms.uTime.value = state.clock.getElapsedTime() * 0.001;
-    console.log(material.current.uniforms.uTime.value)
+  useFrame(({ clock }) => {
+    material.current.uniforms.uTime.value = clock.getElapsedTime() * 2;
   })
   return (
     <mesh ref={ref} {...props}>
