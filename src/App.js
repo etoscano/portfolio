@@ -11,6 +11,7 @@ import Header from "./Components/Header/Header"
 
 
 function App() {
+  // TODO viewport aspect useblock
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100)
   camera.position.set(0, 0.5, 3)
 

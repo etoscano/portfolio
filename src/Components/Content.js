@@ -23,11 +23,11 @@ function Content() {
             </Text>
           </Block>
           <Block factor={1.0}>
-            <Dom position={[-w / 3.2, -w * 0.08 + 0.25, -1]}>It was the year 2076.{mobile ? <br /> : " "}The substance had arrived.</Dom>
+            <Dom position={[-w / 3.2, -w * 0.8 + 0.25, -1]}>It was the year 2076.{mobile ? <br /> : " "}The substance had arrived.</Dom>
           </Block>
         </Block>
         <Block factor={1.2} offset={5.7}>
-          <MultilineText top left size={w * 0.15} lineHeight={w / 5} position={[-w / 3.5, 0, -1]} color="#2fe8c3" text={"four\nzero\nzero"} />
+          <MultilineText top left size={w * 15} lineHeight={w / 5} position={[-w / 3.5, 0, -1]} color="#2fe8c3" text={"four\nzero\nzero"} />
         </Block>
         {state.paragraphs.map((props, index) => (
           <Paragraph key={index} index={index} {...props} image={images[index]} />
