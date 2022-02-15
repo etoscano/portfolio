@@ -37,6 +37,16 @@ export class BuildingsShaderMaterial extends THREE.ShaderMaterial {
       `
     })
   }
+
+  set map(value) {
+    this.uniforms.uTexture.value = value
+  }
+
+  get map() {
+    return this.uniforms.uTexture.value
+  }
 }
+
+
 
 extend({ BuildingsShaderMaterial })

@@ -45,23 +45,25 @@ export default function Diamonds() {
       model.current.instanceMatrix.needsUpdate = true
     })
 
-    gl.autoClear = false
-    camera.layers.set(0)
-    gl.setRenderTarget(envFbo)
-    gl.clearColor()
-    gl.render(scene, camera)
-    gl.clearDepth()
-    camera.layers.set(1)
-    model.current.material = backfaceMaterial
-    gl.setRenderTarget(backfaceFbo)
-    gl.clearDepth()
-    gl.render(scene, camera)
-    camera.layers.set(0)
-    gl.setRenderTarget(null)
-    gl.render(scene, camera)
-    gl.clearDepth()
-    camera.layers.set(1)
-    model.current.material = refractionMaterial
+    // gl.autoClear = false
+    // camera.layers.set(0)
+    // gl.setRenderTarget(envFbo)
+    // gl.clearColor()
+    // gl.render(scene, camera)
+    // gl.clearDepth()
+    // camera.layers.set(1)
+    // model.current.material = backfaceMaterial
+    // gl.setRenderTarget(backfaceFbo)
+    // gl.clearDepth()
+    // gl.render(scene, camera)
+    // camera.layers.set(0)
+    // gl.setRenderTarget(null)
+    // gl.render(scene, camera)
+    // gl.clearDepth()
+    // camera.layers.set(1)
+    // model.current.material = refractionMaterial
+
+    // TODO keep this and move it somewhere safe
     gl.render(scene, camera)
   }, 1)
 

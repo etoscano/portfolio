@@ -16,14 +16,20 @@ function App() {
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100)
   camera.position.set(0, 0.5, 3)
 
+    // const color = "#FFD792"
+    const color = "#000000"
     const scrollArea = useRef()
     const onScroll = e => (state.top.current = e.target.scrollTop)
     useEffect(() => void onScroll({ target: scrollArea.current }), [])
     return (
       <>
         {/* <Canvas className="canvas" concurrent pixelRatio={1} camera={{ zoom: state.zoom, position: [0, 3, 500]}}> */}
-        <Canvas className="canvas" concurrent pixelRatio={1} camera={camera}>
-          <Suspense fallback={<Dom center className="loading" children="Loading..." />}>
+        <Canvas className="canvas" concurrent pixelRatio={1} camera={camera} onCreated={state => state.gl.setClearColor(color)}>
+          <Suspense fallback={
+            <Dom center className="loading">
+              <div className="loading__inner">Loading...</div>
+            </Dom>
+            }>
 
           <Clouds  args={[7,7, 512, 512]} rotation={[- Math.PI * 0.5, 0, 0]} frustumCulled={false} />
           <Buildings />

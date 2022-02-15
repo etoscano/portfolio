@@ -57,8 +57,10 @@ const state = {
     { index: 6.3, color: "#000", height: 20 }
   ],
   buildings: [
-    { index: 0, image: "/b_1.jpeg" },
-    { index: 1, image: "/b_2.jpeg" }
+    { index: 0, image: "/textures/buildings/b_1.jpeg" },
+    { index: 1, image: "/textures/buildings/b_2.jpeg" },
+    { index: 2, image: "/textures/buildings/b_3.jpeg" },
+    { index: 3, image: "/textures/buildings/b_4.jpeg" }
   ],
   diamonds: [
     { x: 0, index: 0.15, pos: new Vector3(), scale: 0.6, factor: 1.8 },
