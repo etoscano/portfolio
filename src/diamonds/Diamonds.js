@@ -33,9 +33,9 @@ export default function Diamonds() {
   useFrame(() => {
     state.diamonds.forEach((data, i) => {
       const t = clock.getElapsedTime() / 2
-      const { x, offset, scale, factor } = data
+      const { x, index, scale, factor } = data
       const s = (contentMaxWidth / 35) * scale
-      data.pos.set(mobile ? 0 : x, lerp(data.pos.y, -sectionHeight * offset * factor + (state.top.current / state.zoom) * factor, 0.1), 0)
+      data.pos.set(mobile ? 0 : x, lerp(data.pos.y, -sectionHeight * index * factor + (state.top.current / state.zoom) * factor, 0.1), 0)
       dummy.position.copy(data.pos)
       if (i === state.diamonds.length - 1) dummy.rotation.set(0, t, 0)
       else dummy.rotation.set(t, t, t)

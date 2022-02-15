@@ -16,7 +16,7 @@ function Content() {
     const { contentMaxWidth: w, canvasWidth, canvasHeight, mobile } = useBlock()
     return (
       <>
-        <Block factor={1} offset={0}>
+        {/* <Block factor={1} offset={0}>
           <Block factor={1.2}>
             <Text left size={w * 0.08} position={[-w / 3.2, 0.5, -1]} color="#d40749">
               MOKSHA
@@ -28,7 +28,7 @@ function Content() {
         </Block>
         <Block factor={1.2} offset={5.7}>
           <MultilineText top left size={w * 15} lineHeight={w / 5} position={[-w / 3.5, 0, -1]} color="#2fe8c3" text={"four\nzero\nzero"} />
-        </Block>
+        </Block> */}
         {state.paragraphs.map((props, index) => (
           <Paragraph key={index} index={index} {...props} image={images[index]} />
         ))}

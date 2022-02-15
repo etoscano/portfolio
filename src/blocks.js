@@ -3,32 +3,40 @@ import { useFrame, useThree } from "react-three-fiber"
 import lerp from "lerp"
 import state from "./Database"
 
-const offsetContext = createContext(0)
+const indexContext = createContext(0)
 
-function Block({ children, offset, factor, ...props }) {
-  const { offset: parentOffset, sectionHeight, viewportFactor } = useBlock()
+function Block({ children, index, factor, ...props }) {
+  const { index: parentIndex, sectionHeight, viewportFactor } = useBlock()
   const ref = useRef()
-  offset = offset !== undefined ? offset : parentOffset
+  index = index !== undefined ? index : parentIndex
+
+
+console.log("sectionHeight " + -sectionHeight)
+console.log( index )
+console.log( factor)
+console.log(-sectionHeight * index * factor)
+
   useFrame(() => {
     const curY = ref.current.position.y
     const curTop = state.top.current
+    // const h = (state.pages / state.sections) * 100 * 0.8
     ref.current.position.y = lerp(curY, (curTop / state.zoom) * viewportFactor, 0.1)
   })
   return (
-    <offsetContext.Provider value={offset}>
-      <group {...props} position={[0, -sectionHeight * viewportFactor * factor * offset, 0]}>
+    <indexContext.Provider value={index}>
+      <group {...props} position={[0, -sectionHeight * index * factor, 0]}>
         <group ref={ref}>{children}</group>
       </group>
-    </offsetContext.Provider>
+    </indexContext.Provider>
   )
 }
 
 function useBlock() {
   const { sections, pages, zoom } = state
   const { size, viewport } = useThree()
-  const offset = useContext(offsetContext)
-  const viewportWidth = viewport.width
-  const viewportHeight = viewport.height
+  const index = useContext(indexContext)
+  const viewportWidth = viewport.width * viewport.factor
+  const viewportHeight = viewport.height * viewport.factor
   const viewportFactor = viewport.factor
   const canvasWidth = viewportWidth / zoom
   const canvasHeight = viewportHeight / zoom
@@ -36,12 +44,13 @@ function useBlock() {
   const margin = canvasWidth * (mobile ? 0.2 : 0.1)
   const contentMaxWidth = canvasWidth * (mobile ? 0.8 : 0.6)
   const sectionHeight = viewportHeight * ((pages - 1) / (sections - 1))
-  // console.log(viewportFactor + " viewportFactor")
-  // console.log(sectionHeight + " sectionHeight")
-  const offsetFactor = (offset + 1.0) / sections
+  console.log(viewportWidth + " viewportWidth")
+  console.log(viewportHeight + " viewportHeight")
+  console.log(sectionHeight + " sectionHeight")
+  const indexFactor = (index + 1.0) / sections
   return {
     viewport,
-    offset,
+    index,
     viewportWidth,
     viewportHeight,
     viewportFactor,
@@ -51,7 +60,7 @@ function useBlock() {
     margin,
     contentMaxWidth,
     sectionHeight,
-    offsetFactor
+    indexFactor
   }
 }
 

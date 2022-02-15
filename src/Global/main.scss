@@ -9,3 +9,14 @@
 
 // Import Pages
 @import "../Pages/Home.scss";
+
+
+// delete
+
+.scrollArea *:nth-child(odd) {
+    background-color: #ff000066;
+}
+
+.scrollArea *:nth-child(even) {
+    background-color: #00ff0066;
+}
