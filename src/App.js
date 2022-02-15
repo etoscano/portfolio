@@ -5,6 +5,7 @@ import { Content } from "./Components/Content"
 import { Startup } from "./Components/Startup"
 import { Clouds } from "./Components/Clouds"
 import Diamonds from "./diamonds/Diamonds"
+import { Buildings } from "./Components/Buildings"
 import state from "./Database"
 import * as THREE from 'three'
 import Header from "./Components/Header/Header"
@@ -25,7 +26,7 @@ function App() {
           <Suspense fallback={<Dom center className="loading" children="Loading..." />}>
 
           <Clouds  args={[7,7, 512, 512]} rotation={[- Math.PI * 0.5, 0, 0]} frustumCulled={false} />
- 
+          <Buildings />
 
             <Content />
             <Diamonds />

@@ -11,7 +11,7 @@ function Block({ children, index, factor, ...props }) {
   index = index !== undefined ? index : parentIndex
 
 
-console.log("state.top.current " + state.top.current)
+// console.log("state.top.current " + state.top.current)
 
   useFrame(() => {
     const curY = ref.current.position.y
@@ -41,9 +41,9 @@ function useBlock() {
   const margin = canvasWidth * (mobile ? 0.2 : 0.1)
   const contentMaxWidth = canvasWidth * (mobile ? 0.8 : 0.6)
   const sectionHeight = viewportHeight * ((pages - 1) / (sections - 1))
-  console.log(viewportWidth + " viewportWidth")
-  console.log(viewportHeight + " viewportHeight")
-  console.log(sectionHeight + " sectionHeight")
+  // console.log(viewportWidth + " viewportWidth")
+  // console.log(viewportHeight + " viewportHeight")
+  // console.log(sectionHeight + " sectionHeight")
   const indexFactor = (index + 1.0) / sections
   return {
     viewport,

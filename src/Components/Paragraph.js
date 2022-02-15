@@ -13,7 +13,7 @@ function Paragraph({ image, index, factor, header, aspect, text }) {
     const pixelWidth = canvasWidth * state.zoom * size
     const left = !(index % 2)
     const color = index % 2 ? "#D40749" : "#2FE8C3"
-    console.log("blockIndex " + index)
+    // console.log("blockIndex " + index)
 
     return (
       <Block factor={factor} index={index}>
