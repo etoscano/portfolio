@@ -18,7 +18,7 @@ function Paragraph({ image, index, factor, header, aspect, text }) {
     return (
       <Block factor={factor} index={index}>
         {/* <group position={[left ? -alignRight : alignRight, 0, 0]}> */}
-          <Plane map={image} args={[1, 1, 32, 32]} shift={75} size={size} aspect={aspect} scale={[w * size, (w * size) / aspect, 1]} frustumCulled={false} />
+          {/* <Plane map={image} args={[1, 1, 32, 32]} shift={75} size={size} aspect={aspect} scale={[w * size, (w * size) / aspect, 1]} frustumCulled={false} /> */}
           <Dom
             style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: left ? "left" : "right" }}
             // style={{ mixBlendMode: "difference", width: pixelWidth * 500 / (mobile ? 1 : 2), textAlign: left ? "left" : "right" }}

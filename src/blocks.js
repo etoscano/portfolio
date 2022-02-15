@@ -11,20 +11,17 @@ function Block({ children, index, factor, ...props }) {
   index = index !== undefined ? index : parentIndex
 
 
-console.log("sectionHeight " + -sectionHeight)
-console.log( index )
-console.log( factor)
-console.log(-sectionHeight * index * factor)
+console.log("state.top.current " + state.top.current)
 
   useFrame(() => {
     const curY = ref.current.position.y
     const curTop = state.top.current
     // const h = (state.pages / state.sections) * 100 * 0.8
-    ref.current.position.y = lerp(curY, (curTop / state.zoom) * viewportFactor, 0.1)
+    ref.current.position.y = lerp(curY, curTop, 0.1)
   })
   return (
     <indexContext.Provider value={index}>
-      <group {...props} position={[0, -sectionHeight * index * factor, 0]}>
+      <group {...props} position={[0, -sectionHeight * index, 0]}>
         <group ref={ref}>{children}</group>
       </group>
     </indexContext.Provider>
