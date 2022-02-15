@@ -9,12 +9,33 @@ import { Buildings } from "./Components/Buildings"
 import state from "./Database"
 import * as THREE from 'three'
 import Header from "./Components/Header/Header"
+import lerp from "lerp"
+
+function Dolly() {
+  // This one makes the camera move
+  useFrame(({ clock, camera }) => {
+    // camera.position.x -= 0.0001
+    // camera.position.z -= 0.001
+    camera.position.z -= (state.top.current * 1) * 0.0001
+    // console.log(state.top.current)
+  })
+  return null
+}
 
 
 function App() {
   // TODO viewport aspect useblock
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100)
+  // const cam = useRef()
   camera.position.set(0, 0.5, 3)
+  
+  // const last = state.top.current
+  // useFrame(() => {
+  //   cam.current.position.y = lerp(camera.position.y, (state.top.current - last) / 100, 0.1)
+  //   // console.log(lerp(camera.position.y, (state.top.current - last) / 100, 0.1))
+  //   last = state.top.current
+  // })
+      
 
     // const color = "#FFD792"
     const color = "#000000"
@@ -33,6 +54,8 @@ function App() {
 
           <Clouds  args={[7,7, 512, 512]} rotation={[- Math.PI * 0.5, 0, 0]} frustumCulled={false} />
           <Buildings />
+          
+          <Dolly />
 
             <Content />
             <Diamonds />
