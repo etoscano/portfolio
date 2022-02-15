@@ -2,11 +2,11 @@ import React, { forwardRef, useRef } from "react"
 import { useFrame } from "react-three-fiber"
 import lerp from "lerp"
 import "./CustomMaterial"
-import { useBlock } from "../blocks"
+import { useMeasures } from "../Measures"
 import state from "../Database"
 
 const Plane = forwardRef(({ color = "white", shift = 1, opacity = 1, args, map, ...props }, ref) => {
-  const { viewportHeight, indexFactor } = useBlock()
+  const { viewportHeight, indexFactor } = useMeasures()
   const material = useRef()
   let last = state.top.current
   useFrame(() => {

@@ -1,15 +1,13 @@
 
-import React, { Suspense, useEffect, useRef, useMemo } from "react"
-import { Canvas, Dom, useLoader, useFrame } from "react-three-fiber"
+import React, { Suspense, useEffect, useRef } from "react"
+import { Canvas, Dom, useFrame } from "react-three-fiber"
 import { Content } from "./Components/Content"
 import { Startup } from "./Components/Startup"
 import { Clouds } from "./Components/Clouds"
-import Diamonds from "./diamonds/Diamonds"
 import { Buildings } from "./Components/Buildings"
 import state from "./Database"
 import * as THREE from 'three'
 import Header from "./Components/Header/Header"
-import lerp from "lerp"
 
 function Dolly() {
   // This one makes the camera move
@@ -58,7 +56,7 @@ function App() {
           <Dolly />
 
             <Content />
-            <Diamonds />
+            
             <Startup />
           </Suspense>
         </Canvas>

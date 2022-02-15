@@ -1,14 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import React, { useState } from "react"
-import Home from "../../Pages/Home";
-import About from "../../Pages/About";
-import Projects from "../../Pages/Projects";
-import ErrorPage from "../../Pages/ErrorPage";
 
 function Header(props) {
     const names = ['Home', 'About', 'Projects'];
     const [active, setActive] = useState(names[0]);
-  // get prop experience
 
     function setSelected(name) {
         setActive(name);
@@ -22,12 +17,12 @@ function Header(props) {
               experience.cameraAbout();
               break;
           case 'Home':
+              default:  
              experience.cameraDown();
               break;
       }
     }
 
-    // setExperience(props.experience);
     const experience = props.experience;
 
     const isAboutSelected = active === 'About';
@@ -58,14 +53,6 @@ function Header(props) {
           <div className="header__after"></div>  
         </div>
       </header>
-
-      {/* Page content */}
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes> */}
 
     </Router>
   );

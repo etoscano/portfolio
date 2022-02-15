@@ -1,5 +1,4 @@
 import { createRef } from "react"
-import { Vector3 } from "three"
 
 const state = {
   sections: 6,
@@ -61,16 +60,6 @@ const state = {
     { index: 1, image: "/textures/buildings/b_2.jpeg" },
     { index: 2, image: "/textures/buildings/b_3.jpeg" },
     { index: 3, image: "/textures/buildings/b_4.jpeg" }
-  ],
-  diamonds: [
-    { x: 0, index: 0.15, pos: new Vector3(), scale: 0.6, factor: 1.8 },
-    { x: 2, index: 1.1, pos: new Vector3(), scale: 0.8, factor: 2.1 },
-    { x: -5, index: 2, pos: new Vector3(), scale: 0.8, factor: 2.5 },
-    { x: 0, index: 3.2, pos: new Vector3(), scale: 0.8, factor: 1.75 },
-    { x: 0, index: 4, pos: new Vector3(), scale: 0.8, factor: 2.5 },
-    { x: 2, index: 5.5, pos: new Vector3(), scale: 1.25, factor: 0.85 },
-    { x: -5, index: 7, pos: new Vector3(), scale: 0.8, factor: 2 },
-    { x: 0, index: 8, pos: new Vector3(), scale: 1.5, factor: 6 }
   ],
   top: createRef()
 }

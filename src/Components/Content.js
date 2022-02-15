@@ -1,6 +1,6 @@
 
 import React, { useMemo } from "react"
-import { Dom, useLoader } from "react-three-fiber"
+import { useLoader } from "react-three-fiber"
 import { TextureLoader, LinearFilter } from "three"
 import { Paragraph } from "./Paragraph"
 import state from "../Database"
