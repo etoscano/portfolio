@@ -1,13 +1,8 @@
 import React, { forwardRef, useRef, useMemo } from "react"
-import * as THREE from 'three'
 import { TextureLoader, LinearFilter } from "three"
 import { useFrame, useRender, useLoader } from "react-three-fiber"
-import lerp from "lerp"
-import { useBlock } from "../blocks"
 import state from "../Database"
 import "./BuildingsShaderMaterial.js"
-import { Clock } from "three"
-import { Vector3 } from "three"
 
 const Buildings = forwardRef(({ color = "white", shift = 1, opacity = 1, args, ...props }, ref) => {
   const material = useRef()

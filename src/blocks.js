@@ -21,7 +21,7 @@ function Block({ children, index, factor, ...props }) {
   })
   return (
     <indexContext.Provider value={index}>
-      <group {...props} position={[0, -sectionHeight * index, 0]}>
+      <group {...props} position={[0, -sectionHeight * index * parentIndex, 0]}>
         <group ref={ref}>{children}</group>
       </group>
     </indexContext.Provider>
