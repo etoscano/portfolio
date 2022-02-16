@@ -8,13 +8,16 @@ import { Buildings } from "./Components/Buildings"
 import state from "./Database"
 import * as THREE from 'three'
 import Header from "./Components/Header/Header"
+import { useMeasures } from "./Measures"
 
 function Dolly() {
+  const { fullHeight } = useMeasures()
   // This one makes the camera move
   useFrame(({ clock, camera }) => {
     // camera.position.x -= 0.0001
     // camera.position.z -= 0.001
-    camera.position.z -= (state.top.current * 1) * 0.0001
+    // camera.position.z -= (state.top.current * 1) * 0.0001
+    camera.position.z -= Math.sin( Math.PI * 2 / fullHeight * state.top.current ) * 0.01
     // console.log(state.top.current)
   })
   return null

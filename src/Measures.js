@@ -19,6 +19,7 @@ function useMeasures() {
   const contentMaxWidth = canvasWidth 
   const sectionHeight = viewportHeight * ((pages - 1) / (sections - 1))
   const indexFactor = (index + 1.0) / sections
+  const fullHeight = sectionHeight * sections
   return {
     viewport,
     index,
@@ -31,7 +32,8 @@ function useMeasures() {
     margin,
     contentMaxWidth,
     sectionHeight,
-    indexFactor
+    indexFactor,
+    fullHeight
   }
 }
 

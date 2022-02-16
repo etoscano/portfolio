@@ -59,7 +59,12 @@ const state = {
     { index: 0, image: "/textures/buildings/b_1.jpeg" },
     { index: 1, image: "/textures/buildings/b_2.jpeg" },
     { index: 2, image: "/textures/buildings/b_3.jpeg" },
-    { index: 3, image: "/textures/buildings/b_4.jpeg" }
+    { index: 3, image: "/textures/buildings/b_4.jpeg" },
+    { index: 4, image: "/textures/buildings/b_5.jpeg" },
+    { index: 5, image: "/textures/buildings/b_6.jpeg" },
+    { index: 6, image: "/textures/buildings/b_7.jpeg" },
+    { index: 7, image: "/textures/buildings/b_8.jpeg" },
+    { index: 8, image: "/textures/buildings/b_9.jpeg" }
   ],
   top: createRef()
 }
