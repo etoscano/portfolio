@@ -12,8 +12,8 @@ function Paragraph({ image, index, factor, header, aspect, text }) {
 
     return (
       <>
-        <Dom style={{ width: pixelWidth , textAlign: left ? "left" : "right" }} position={[0,0,0]}>
-            <div tabIndex={index}>{text}</div>
+        <Dom style={{ width: pixelWidth , height: "100vh",  textAlign: left ? "left" : "right" }} position={[0, -1 * index * 400, 0]}>
+            <div className="hello" tabIndex={index}>{text}</div>
         </Dom>
       </>
     )

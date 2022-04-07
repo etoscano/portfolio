@@ -53,19 +53,19 @@ function App() {
             </Dom>
             }>
 
-          <Clouds  args={[7,7, 512, 512]} rotation={[- Math.PI * 0.5, 0, 0]} position={[0, 0, -1]} frustumCulled={false} />
+          <Clouds  args={[7,7, 256, 256]} rotation={[- Math.PI * 0.5, 0, 0]} position={[0, 0, -1]} frustumCulled={false} />
           <Buildings />
           
           <Dolly />
 
-            <Content />
+            {/* <Content /> */}
             
             <Startup />
           </Suspense>
         </Canvas>
         <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
           {new Array(state.sections).fill().map((_, index) => (
-            <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }} />
+            <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }}> ahbkdkhbwkjdbajbwdjkabwj {index}</div>
           ))}
         </div>
         <div className="frame">
