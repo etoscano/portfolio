@@ -14,10 +14,12 @@ function Dolly() {
   const { fullHeight } = useMeasures()
   // This one makes the camera move
   useFrame(({ clock, camera }) => {
-    // camera.position.x -= 0.0001
-    // camera.position.z -= 0.001
-    // camera.position.z -= (state.top.current * 1) * 0.0001
-    camera.position.z -= Math.sin( Math.PI * 2 / fullHeight * state.top.current ) * 0.01
+
+    var cameraTarget = new THREE.Vector3(-2 + 5 * (state.top.current / fullHeight), 0.5, 3);
+    camera.position.lerp(cameraTarget, 0.1);
+
+    // USE THIS TO TEST LERP
+    // camera.position.x = -2 + 4 * (state.top.current / fullHeight)
     // console.log(state.top.current)
   })
   return null
@@ -26,7 +28,7 @@ function Dolly() {
 
 function App() {
   // TODO viewport aspect useblock
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100)
+  const camera = new THREE.PerspectiveCamera(35, -1, 0.1, 100)
   // const cam = useRef()
   camera.position.set(0, 0.5, 3)
   
@@ -65,7 +67,13 @@ function App() {
         </Canvas>
         <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
           {new Array(state.sections).fill().map((_, index) => (
-            <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }}> ahbkdkhbwkjdbajbwdjkabwj {index}</div>
+            <div className="scrollArea__inner" key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }}>
+              <div className="scrollArea__textWrapper">
+                <p className="scrollArea__text">
+                  ahbkdkhbwkjdbajbwdjkabwj {index}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
         <div className="frame">
