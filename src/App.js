@@ -15,7 +15,8 @@ function Dolly() {
   // This one makes the camera move
   useFrame(({ clock, camera }) => {
 
-    var cameraTarget = new THREE.Vector3(-2 + 5 * (state.top.current / fullHeight), 0.5, 3);
+    var startPoint = -4
+    var cameraTarget = new THREE.Vector3(startPoint + startPoint * -1 * 2 * (state.top.current / fullHeight), 0.5, 3);
     camera.position.lerp(cameraTarget, 0.1);
 
     // USE THIS TO TEST LERP
@@ -55,7 +56,7 @@ function App() {
             </Dom>
             }>
 
-          <Clouds  args={[7,7, 256, 256]} rotation={[- Math.PI * 0.5, 0, 0]} position={[0, 0, -1]} frustumCulled={false} />
+          <Clouds  args={[14,7, 256, 256]} rotation={[- Math.PI * 0.5, 0, 0]} position={[0, 0, -1]} frustumCulled={false} />
           <Buildings />
           
           <Dolly />

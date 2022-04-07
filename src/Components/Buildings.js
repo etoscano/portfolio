@@ -22,9 +22,9 @@ const Buildings = forwardRef(({ color = "white", shift = 1, opacity = 1, args, .
   return (
     state.buildings.map((building, index) => (
       <mesh key={building.index} scale={[1, 1, 1]} ref={ref} position={[
-          Math.sin(Math.PI * 2 / n * index + Math.PI - Math.PI / n * (num - 1)) * (radius + (index % 2) * 0.5),
+          -5.75 + index * 1.25,
           0.5,
-          Math.cos(Math.PI * 2 / n * index + Math.PI - Math.PI / n * (num - 1)) * (radius + (index % 2) * 0.5)
+          -1 + Math.cos(Math.PI * index) * 0.25
         ]} >
           <planeBufferGeometry attach="geometry" />
           <buildingsShaderMaterial attach="material" transparent ref={material} map={buildings[index]} />
