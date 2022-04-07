@@ -17,7 +17,7 @@ function Dolly() {
 
     var startPoint = -4
     var cameraTarget = new THREE.Vector3(startPoint + startPoint * -1 * 2 * (state.top.current / fullHeight), 0.5, 3);
-    camera.position.lerp(cameraTarget, 0.1);
+    camera.position.lerp(cameraTarget, 0.05);
 
     // USE THIS TO TEST LERP
     // camera.position.x = -2 + 4 * (state.top.current / fullHeight)
@@ -42,7 +42,7 @@ function App() {
       
 
     // const color = "#FFD792"
-    const color = "#000000"
+    const color = "#0A1842"
     const scrollArea = useRef()
     const onScroll = e => (state.top.current = e.target.scrollTop)
     useEffect(() => void onScroll({ target: scrollArea.current }), [])
@@ -71,7 +71,7 @@ function App() {
             <div className="scrollArea__inner" key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }}>
               <div className="scrollArea__textWrapper">
                 <p className="scrollArea__text">
-                  ahbkdkhbwkjdbajbwdjkabwj {index}
+                  Hello World! N°{index}
                 </p>
               </div>
             </div>
