@@ -1,0 +1,259 @@
+
+.footer__container{
+    // background-color: black;
+    padding: 16px;
+    text-align: center;
+    // display:inline-block;
+    color: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.footer__textWrapper{
+  padding-right: 32px;
+  min-height: 200px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+.footer__link{
+
+
+}
+
+.footer__icon{
+  /*border-radius: 100%;*/
+  box-shadow: 0px 4px 19px 0px #3f51b5f0;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+}
+
+//---------// art footer
+
+.footer__car{
+  top: 300px;
+  z-index: 20;
+  position: relative;
+}
+
+.footer__mountains{
+  position: absolute;
+  z-index: 0;
+  width: 28%;
+  left: 16%;
+  bottom: 185px;
+}
+
+
+.footer__img{
+  width: 25%
+}
+
+
+.footer__mountains__m1 {
+  fill: #dba0fa;
+}
+
+.footer__mountains__m2 {
+  fill: #0a60eb;
+}
+
+.footer__mountains__m3 {
+  fill: #302a6a;
+}
+
+
+.footer__road{
+  min-height: 300px;
+  background-size: 30% 100px;
+  /*background-image: linear-gradient(to right, #7cb9fd 2px, transparent 1px), linear-gradient(to bottom, #319baa 2px, transparent 1px);*/
+  /*background: repeating-linear-gradient(-90deg, transparent, transparent 6px, #464646 6px, #464646 50%), repeating-linear-gradient(0deg, #464646, #464646 20px, #ffffff 2px, #ffffff 50%);*/
+  background: repeating-linear-gradient(-90deg, transparent, transparent 6px, $color-dark-gray 6px, $color-dark-gray 50%), repeating-linear-gradient(0deg, $color-dark-gray, $color-dark-gray 20px, #ffffff 2px, #ffffff 50%);
+  width: 60%;
+  height: 100%;
+  transform: perspective(150px) rotateX(70deg) scale(0.8);
+  z-index: -1;
+  -webkit-animation: myanim 0.7s infinite;
+  -moz-animation: myanim 0.7s infinite;
+  -o-animation: myanim 0.7s infinite;
+  animation: myanim 0.7s infinite;
+
+  &.footer__road--night {
+    background-size: 20px 20px;
+    background-image: linear-gradient(to right, #7cb9fd 2px, transparent 1px), linear-gradient(to bottom, #319baa 2px, transparent 1px);
+    -webkit-animation: myanim2 0.7s infinite;
+    -moz-animation: myanim2 0.7s infinite;
+    -o-animation: myanim2 0.7s infinite;
+    animation: myanim2 0.7s infinite;
+  }
+}
+
+@-webkit-keyframes myanim {
+  0% {
+      background-position: 0 0px;
+      background-size: 30% 100px;
+  }
+  25% {
+      background-position: 0 25px;
+      background-size: 30% 100px;
+  }
+  50% {
+      background-position: 0 50px;
+      background-size: 30% 100px;
+  }
+  75% {
+      background-position: 0 75px;
+      background-size: 30% 100px;
+  }
+  100% {
+      background-position: 0 100px;
+      background-size: 30% 100px;
+  }
+}
+
+@-moz-keyframes myanim {
+  0% {
+      background-position: 0 0px;
+      background-size: 30% 100px;
+  }
+  25% {
+      background-position: 0 25px;
+      background-size: 30% 100px;
+  }
+  50% {
+      background-position: 0 50px;
+      background-size: 30% 100px;
+  }
+  75% {
+      background-position: 0 75px;
+      background-size: 30% 100px;
+  }
+  100% {
+      background-position: 0 100px;
+      background-size: 30% 100px;
+  }
+}
+
+@-o-keyframes myanim {
+  0% {
+      background-position: 0 0px;
+      background-size: 30% 100px;
+  }
+  25% {
+      background-position: 0 25px;
+      background-size: 30% 100px;
+  }
+  50% {
+      background-position: 0 50px;
+      background-size: 30% 100px;
+  }
+  75% {
+      background-position: 0 75px;
+      background-size: 30% 100px;
+  }
+  100% {
+      background-position: 0 100px;
+      background-size: 30% 100px;
+  }
+}
+
+@keyframes myanim {
+  0% {
+      background-position: 0 0px;
+      background-size: 30% 100px;
+  }
+  25% {
+      background-position: 0 25px;
+      background-size: 30% 100px;
+  }
+  50% {
+      background-position: 0 50px;
+      background-size: 30% 100px;
+  }
+  75% {
+      background-position: 0 75px;
+      background-size: 30% 100px;
+  }
+  100% {
+      background-position: 0 100px;
+      background-size: 30% 100px;
+  }
+}
+
+
+
+@-webkit-keyframes myanim2 {
+  0% {
+      background-size: 20px 20px;
+  }
+  25% {
+      background-size: 20px 21px;
+  }
+  50% {
+      background-size: 20px 22px;
+  }
+  75% {
+      background-size: 20px 23px;
+  }
+  100% {
+      background-size: 20px 24px;
+  }
+}
+
+@-moz-keyframes myanim2 {
+  0% {
+      background-size: 20px 20px;
+  }
+  25% {
+      background-size: 20px 21px;
+  }
+  50% {
+      background-size: 20px 22px;
+  }
+  75% {
+      background-size: 20px 23px;
+  }
+  100% {
+      background-size: 20px 24px;
+  }
+}
+
+@-o-keyframes myanim2 {
+  0% {
+      background-size: 20px 20px;
+  }
+  25% {
+      background-size: 20px 21px;
+  }
+  50% {
+      background-size: 20px 22px;
+  }
+  75% {
+      background-size: 20px 23px;
+  }
+  100% {
+      background-size: 20px 24px;
+  }
+}
+
+@keyframes myanim2 {
+  0% {
+      background-size: 20px 20px;
+  }
+  25% {
+      background-size: 20px 21px;
+  }
+  50% {
+      background-size: 20px 22px;
+  }
+  75% {
+      background-size: 20px 23px;
+  }
+  100% {
+      background-size: 20px 24px;
+  }
+}

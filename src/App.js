@@ -19,7 +19,7 @@ function App() {
       
       Hello world!
 
-    {/* <Footer/> */}
+    <Footer/>
 
     </div>
   );
