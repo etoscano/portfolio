@@ -9,27 +9,11 @@ import { useState } from 'react';
 function Header(props) {
     const names = ['Home', 'About', 'Projects'];
     const [active, setActive] = useState(names[0]);
-  // get prop experience
 
     function setSelected(name) {
         setActive(name);
-
-        // Manage THREEJS transitions
-        switch (name) {
-          case 'Projects':
-             experience.cameraProjects();
-              break;
-          case 'About':
-              experience.cameraAbout();
-              break;
-          case 'Home':
-             experience.cameraDown();
-              break;
-      }
     }
 
-    // setExperience(props.experience);
-    const experience = props.experience;
 
     const isAboutSelected = active === 'About';
     const isHomeSelected = active === 'Home';

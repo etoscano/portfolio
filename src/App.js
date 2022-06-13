@@ -3,28 +3,21 @@ import Footer from "./Components/Footer/Footer";
 
 import "./Global/main.scss";
 
-import { useState, useEffect } from 'react';
-import Experience from './Experience/Experience.js'
+import React from 'react';
 
 
 
 function App() {
 
-  const [experience, setExperience] = useState();
-    
-  useEffect(() => { 
-          const experience = new Experience(document.querySelector('canvas.webgl'))
-          setExperience(experience);
-  }, []);
-
   return (
     <div className="app">
 
-    <Header experience={experience}/>
+    <Header />
 
-    <canvas className="webgl"></canvas>
+    {/* <canvas className="webgl"></canvas> */}
     {/* Some content that stays in all pages */}
-
+      
+      Hello world!
 
     {/* <Footer/> */}
 
