@@ -31,7 +31,7 @@ function App() {
   // TODO viewport aspect useblock
   const camera = new THREE.PerspectiveCamera(35, -1, 0.1, 100)
   // const cam = useRef()
-  camera.position.set(0, 0.5, 3)
+  camera.position.set(-4, 0.5, 3)
   
   // const last = state.top.current
   // useFrame(() => {
